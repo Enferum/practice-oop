@@ -1,7 +1,7 @@
 <?php
 
 require_once('lib/CallbackForm.php');
-require_once('lib/callbackFormFooter.php');
+require_once('lib/CallbackFormFooter.php');
 
 $name = isset($_POST['name']) ? trim($_POST['name']) : '';
 $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
@@ -10,7 +10,7 @@ $file = isset($_FILES["file"]["name"]) ? trim($_FILES["file"]["name"]) : '';
 $formType = isset($_POST['formType']) ? trim($_POST['formType']) : '';
 
 $form = new CallbackForm($name, $phone);
-$form2 = new CallbackForm2($name, $phone, $email, $file);
+$form2 = new CallbackFormFooter($name, $phone, $email, $file);
 
 if ($_POST['formType'] == 'email') {
     if ($form2->validate()) {

@@ -2,10 +2,10 @@
 
 require_once('CallbackForm.php');
 
-class CallbackForm2 extends CallbackForm
+class CallbackFormFooter extends CallbackForm
 {
     public $email;
-    public $file;
+    protected $file;
 
     public function __construct($name, $phone, $email, $file)
     {
@@ -18,7 +18,7 @@ class CallbackForm2 extends CallbackForm
         if (empty($this->email) xor (!filter_var(($this->email), FILTER_VALIDATE_EMAIL))) {
             return false;
         }
-        if (empty($this->file) xor (($_FILES["file"]["size"] > 5000000) ||
+        if (empty($this->file) xor (($_FILES["file"]["size"] > 5120000) ||
                 (strtolower(substr(strrchr($_FILES["file"]["name"], '.'), 1))) != 'pdf')) {
             return false;
         }
